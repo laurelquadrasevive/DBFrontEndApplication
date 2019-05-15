@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Insert To DB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+<b><center>Please Enter the following fields</center></b>
+<p></p>
+<form action="/inserting" method="get">
+    Id: <input type="text" class="form-control" name="id" />
+    Name: <input type="text" class="form-control" name = "name" />
+    Password: <input type="text" class="form-control" name = "password" />
+    Location: <input type="text" class="form-control" name = "location" />
+    Age: <input type="text" class="form-control" name = "age" />
+    <p></p>
+    <input type="submit" class="btn btn-primary" value="submit" />
+</form>
+</body>
+</html>
