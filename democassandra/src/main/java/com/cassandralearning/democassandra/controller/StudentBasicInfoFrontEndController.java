@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Optional;
+
 @Controller
 public class StudentBasicInfoFrontEndController {
 
@@ -25,6 +27,11 @@ public class StudentBasicInfoFrontEndController {
         return "deleteDB";
     }
 
+    @RequestMapping("/updateToDB")
+    public String updateToDB() {
+        return "updateToDB";
+    }
+
     @RequestMapping(value = "/inserting", method = RequestMethod.GET)
     @ResponseBody
     public String inserting(@RequestParam int id, @RequestParam String name, @RequestParam String password,
@@ -39,5 +46,20 @@ public class StudentBasicInfoFrontEndController {
     public String deleting(@RequestParam int id) {
         studentBasicInfoRepository.deleteById(id);
         return "deleted in db";
+    }
+
+    @RequestMapping(value = "/updating", method = RequestMethod.GET)
+    @ResponseBody
+    public String updating(@RequestParam int id, @RequestParam String name, @RequestParam String password,
+                           @RequestParam String location, @RequestParam int age) {
+        Optional<StudentBasicInfo> studentBasicInfoPresent =studentBasicInfoRepository.findById(id);
+        if (studentBasicInfoPresent.isPresent()) {
+            StudentBasicInfo studentBasicInfo = new StudentBasicInfo(id,name,password,location,age);
+            studentBasicInfoRepository.save(studentBasicInfo);
+        }
+        else {
+            return "User not present in DB";
+        }
+        return "updated user in db";
     }
 }

@@ -18,14 +18,14 @@ public class StudentBasicInfoController {
     @Autowired
     private StudentBasicInfoRepository studentBasicInfoRepository;
 
-    @PostConstruct
-    public void savePerson() {
-        List<StudentBasicInfo> people = new ArrayList<>();
-        people.add(new StudentBasicInfo(2, "Lionel", "12121", "Barkur", 22));
-        people.add(new StudentBasicInfo(3, "Lona", "12651", "Dubai", 28));
-        people.add(new StudentBasicInfo(4, "Leenurs", "12765", "USA", 32));
-        studentBasicInfoRepository.saveAll(people);
-    }
+//    @PostConstruct
+//    public void savePerson() {
+//        List<StudentBasicInfo> people = new ArrayList<>();
+//        people.add(new StudentBasicInfo(2, "Lionel", "12121", "Barkur", 22));
+//        people.add(new StudentBasicInfo(3, "Lona", "12651", "Dubai", 28));
+//        people.add(new StudentBasicInfo(4, "Leenurs", "12765", "USA", 32));
+//        studentBasicInfoRepository.saveAll(people);
+//    }
 
     @GetMapping("/getAllStudentBasicInfo")
     public List<StudentBasicInfo> getPerson() {
