@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Optional;
+
 @Controller
 public class StudentBasicInfoFrontEndController {
 
@@ -50,6 +52,7 @@ public class StudentBasicInfoFrontEndController {
         return "deleted in db";
     }
 
+
     @RequestMapping(value = "/scripting", method = RequestMethod.GET)
     @ResponseBody
     public String scripting(@RequestParam int number) {
@@ -57,3 +60,4 @@ public class StudentBasicInfoFrontEndController {
         return "script ran";
     }
 }
+

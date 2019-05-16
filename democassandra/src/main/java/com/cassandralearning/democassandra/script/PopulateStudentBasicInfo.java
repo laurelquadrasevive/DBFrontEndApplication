@@ -1,3 +1,4 @@
+
 package com.cassandralearning.democassandra.script;
 
 import com.cassandralearning.democassandra.model.StudentBasicInfo;
