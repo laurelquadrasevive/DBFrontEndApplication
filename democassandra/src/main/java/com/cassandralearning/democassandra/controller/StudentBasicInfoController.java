@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,15 +15,6 @@ public class StudentBasicInfoController {
 
     @Autowired
     private StudentBasicInfoRepository studentBasicInfoRepository;
-
-    @PostConstruct
-    public void savePerson() {
-        List<StudentBasicInfo> people = new ArrayList<>();
-        people.add(new StudentBasicInfo(2, "Lionel", "12121", "Barkur", 22));
-        people.add(new StudentBasicInfo(3, "Lona", "12651", "Dubai", 28));
-        people.add(new StudentBasicInfo(4, "Leenurs", "12765", "USA", 32));
-        studentBasicInfoRepository.saveAll(people);
-    }
 
     @GetMapping("/getAllStudentBasicInfo")
     public List<StudentBasicInfo> getPerson() {
@@ -60,5 +49,4 @@ public class StudentBasicInfoController {
     public String errorPage() {
         return "URL entered in incorrect";
     }
-
 }

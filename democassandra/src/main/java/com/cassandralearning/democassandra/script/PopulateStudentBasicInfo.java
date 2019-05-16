@@ -3,23 +3,31 @@ package com.cassandralearning.democassandra.script;
 import com.cassandralearning.democassandra.model.StudentBasicInfo;
 import com.cassandralearning.democassandra.repository.StudentBasicInfoRepository;
 import com.github.javafaker.Faker;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
+public class PopulateStudentBasicInfo {
 
-public class PopulateStudentBasicInfo extends NullPointerException{
+    @Autowired
+    private  StudentBasicInfoRepository studentBasicInfoRepository;
 
-    private static StudentBasicInfoRepository studentBasicInfoRepository;
-    private static StudentBasicInfo studentBasicInfo;
+    private  Faker faker = new Faker();
 
-    private static Faker faker = new Faker();
-
-    public static void main(String[] args)  {
-        int id = faker.number().numberBetween(1,10);
+    public void scriptRun()  {
+        int id = faker.number().numberBetween(100,1000);
         String name = faker.name().firstName();
         String password = faker.phoneNumber().phoneNumber();
         String location = faker.gameOfThrones().city();
         int age = faker.number().numberBetween(20,50);
 
-        studentBasicInfo = new StudentBasicInfo(id,name,password,location,age);
+        StudentBasicInfo studentBasicInfo = new StudentBasicInfo(id,name,password,location,age);
         studentBasicInfoRepository.save(studentBasicInfo);
+    }
+
+    public void finalRun(int n) {
+        for (int i=0; i< n; i++) {
+            scriptRun();
+        }
     }
 }

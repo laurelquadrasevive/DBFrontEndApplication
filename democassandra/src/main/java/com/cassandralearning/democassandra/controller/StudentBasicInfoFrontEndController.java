@@ -2,6 +2,7 @@ package com.cassandralearning.democassandra.controller;
 
 import com.cassandralearning.democassandra.model.StudentBasicInfo;
 import com.cassandralearning.democassandra.repository.StudentBasicInfoRepository;
+import com.cassandralearning.democassandra.script.PopulateStudentBasicInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class StudentBasicInfoFrontEndController {
+
+    @Autowired
+    private PopulateStudentBasicInfo populateStudentBasicInfo;
 
     @Autowired
     private StudentBasicInfoRepository studentBasicInfoRepository;
@@ -23,6 +27,11 @@ public class StudentBasicInfoFrontEndController {
     @RequestMapping("/deleteFromDB")
     public String deleteFromDB() {
         return "deleteDB";
+    }
+
+    @RequestMapping(value = "/script" , method = RequestMethod.GET)
+    public String runScript() {
+        return "scriptRun";
     }
 
     @RequestMapping(value = "/inserting", method = RequestMethod.GET)
@@ -39,5 +48,12 @@ public class StudentBasicInfoFrontEndController {
     public String deleting(@RequestParam int id) {
         studentBasicInfoRepository.deleteById(id);
         return "deleted in db";
+    }
+
+    @RequestMapping(value = "/scripting", method = RequestMethod.GET)
+    @ResponseBody
+    public String scripting(@RequestParam int number) {
+        populateStudentBasicInfo.finalRun(number);
+        return "script ran";
     }
 }
