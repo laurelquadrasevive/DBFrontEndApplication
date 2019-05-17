@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Insert To DB</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title>Script to Insert To DB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<b><center>Please Enter the the Values required</center></b>
-<p></p>
-<form action="/scripting" method="get">
-    N: <input type="text" class="form-control" name="number" />
-    <p></p>
-    <input type="submit" class="btn btn-primary" value="submit" />
-</form>
+<div class="container">
+    <div class="jumbotron">
+        <form action="/scripting" method="get">
+            <div class="form-group">
+                <b><center><h2>Enter the the Values required</h2></center></b>
+                <hr class="my-4">
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-number-for-script">Number: </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Enter number of entries required" aria-label="Number" name="number" aria-describedby="basic-number-for-script">
+                </div>
+
+                <hr class="my-4">
+                <input type="submit" class="btn btn-success btn btn-primary btn-lg" value="Submit" />
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
