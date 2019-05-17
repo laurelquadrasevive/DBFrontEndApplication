@@ -53,7 +53,13 @@ public class StudentBasicInfoFrontEndController {
     @RequestMapping(value = "/deleting", method = RequestMethod.GET)
     @ResponseBody
     public String deleting(@RequestParam int id) {
-        studentBasicInfoRepository.deleteById(id);
+        Optional<StudentBasicInfo> studentBasicInfoPresent = studentBasicInfoRepository.findById(id);
+        if (studentBasicInfoPresent.isPresent()) {
+            studentBasicInfoRepository.deleteById(id);
+        }
+        else {
+            return "User not present in DB";
+        }
         return "deleted in db";
     }
 
