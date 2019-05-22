@@ -2,26 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>Delete From DB</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
     <div class="jumbotron">
 
-        <form action="/mainpage" method="get">
-            <div class="form-group">
-                <center>
-                    <input type="submit" class="btn btn-primary" value="Main Page" />
-                </center>
-            </div>
-        </form>
 
-        <form action="/deleting" method="get">
+        <form action="/" method="post">
 
             <div class="form-group">
 
-                <b><center><h2>Please Enter the required value</h2></center></b>
+                <b><center><h2>Login Page</h2></center></b>
                 <hr class="my-4">
 
                 <div class="input-group mb-3">
@@ -29,6 +22,13 @@
                         <span class="input-group-text" id="basic-id">ID: </span>
                     </div>
                     <input type="text" class="form-control" placeholder="Enter ID" aria-label="ID" name="id" aria-describedby="basic-id">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-password">Password: </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Enter Password" aria-label="Password" name="password" aria-describedby="basic-password">
                 </div>
 
                 <hr class="my-4">
