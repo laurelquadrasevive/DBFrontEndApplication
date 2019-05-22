@@ -17,6 +17,11 @@ public class StudentBasicInfoMainController {
     private StudentBasicInfoRepository studentBasicInfoRepository;
 
     @RequestMapping(value = "/")
+    public String loginPage() {
+        return "loginPage";
+    }
+
+    @RequestMapping(value = "/mainpage")
     public String mainpage() {
         return "mainpage";
     }
